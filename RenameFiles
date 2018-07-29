@@ -1,0 +1,10 @@
+'Dependencies GetFiles
+
+Sub RenameFiles
+  dim f as variant
+  for each f in GetFiles("FileDirectory")
+    if instr(1,f,"Criteria")
+      name f as replace(f,"Criteria","NewPiece")
+    end if
+  next f
+End Sub
