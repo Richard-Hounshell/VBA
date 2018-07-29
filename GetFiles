@@ -1,0 +1,13 @@
+'Dependencies: None
+'Returns a collection of all file names in a given folder
+
+Function GetFiles(path As String, Optional pattern As String = "") As Collection
+    Dim rv As New Collection, f as Variant
+    If Right(path, 1) <> "\" Then path = path & "\"
+    f = Dir(path & pattern)
+    Do While Len(f) > 0
+        rv.Add path & f
+        f = Dir() 'no parameter
+    Loop
+    Set GetFiles = rv
+End Function
